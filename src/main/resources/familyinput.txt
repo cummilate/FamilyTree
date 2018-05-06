@@ -1,0 +1,38 @@
+----------family input--------------
+
+Mother=Diana Son=John
+Mother=Diana Son=Alex
+Mother=Diana Son=Joe
+Mother=Diana Daughter=Nisha
+Husband=Alex Wife=Nancy
+Husband=Joe Wife=Niki
+Wife=Nisha Husband=Adam
+Mother=Nancy Son=Jacob
+Mother=Nancy Son=Shaun
+Mother=Niki Son=Piers
+Mother=Niki Son=Sally
+Mother=Nisha Son=Ruth
+Mother=Adam Son=William
+Mother=Nisha Son=Paul
+Husband=Jacob Wife=Rufi
+Husband=Piers Wife=Pippa
+Wife=Sally Husband=Owen
+Wife=Ruth Husband=Neil
+Husband=William Wife=Rose
+Husband=Paul Wife=Zoe
+Mother=Rufi Son=Bern
+Mother=Rufi Daughter=Sophia
+Mother=Pippa Daughter=Sarah
+Wife=Sophia Husband=George
+Wife=Sarah Husband=Peter
+Mother=Zoe Son=Roger
+Mother=Rose Son=Steve
+
+
+
+--testcases-----------------
+
+Person=Peter Relation=Father
+Person=Sarah Relation=Father
+Person=Sarah Relation=Mother
+Person=Sarah Relation=Brothers
