@@ -12,8 +12,8 @@ public abstract class RelationAction {
     public abstract void addRelation(Person person, String relationName, String relativeName);
     public abstract Set<String> findRelation(Person person, String relationName);
 
-    List<String> maleRelations = Arrays.asList("Husband", "Son", "Sons","Brother", "Brothers", "Father",  "GrandFather", "GrandSon", "GrandSons", "Uncle");
-    List<String> femaleRelations = Arrays.asList("Wife", "Daughter","Daughters","Sister", "Sisters", "Mother", "GrandMother","GrandDaughter","GrandDaughters", "Aunt");
+    List<String> maleRelations = Arrays.asList("Husband", "Son", "Sons","Brother", "Brothers", "Father",  "GrandFather", "GrandSon", "GrandSons", "Uncle", "Uncles");
+    List<String> femaleRelations = Arrays.asList("Wife", "Daughter","Daughters","Sister", "Sisters", "Mother", "GrandMother","GrandDaughter","GrandDaughters", "Aunt", "Aunts");
 
     protected GenderType getGender(String relationName) {
         if(maleRelations.contains(relationName)){

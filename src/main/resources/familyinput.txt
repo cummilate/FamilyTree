@@ -4,29 +4,34 @@ Mother=Diana Son=John
 Mother=Diana Son=Alex
 Mother=Diana Son=Joe
 Mother=Diana Daughter=Nisha
+
 Husband=Alex Wife=Nancy
 Husband=Joe Wife=Niki
 Wife=Nisha Husband=Adam
+
 Mother=Nancy Son=Jacob
 Mother=Nancy Son=Shaun
 Mother=Niki Son=Piers
-Mother=Niki Son=Sally
-Mother=Nisha Son=Ruth
-Mother=Adam Son=William
+Mother=Niki Daughter=Sally
+Mother=Nisha Daughter=Ruth
+Mother=Nisha Son=William
 Mother=Nisha Son=Paul
+
 Husband=Jacob Wife=Rufi
 Husband=Piers Wife=Pippa
 Wife=Sally Husband=Owen
 Wife=Ruth Husband=Neil
 Husband=William Wife=Rose
 Husband=Paul Wife=Zoe
+
 Mother=Rufi Son=Bern
 Mother=Rufi Daughter=Sophia
 Mother=Pippa Daughter=Sarah
-Wife=Sophia Husband=George
-Wife=Sarah Husband=Peter
 Mother=Zoe Son=Roger
 Mother=Rose Son=Steve
+
+Wife=Sophia Husband=George
+Wife=Sarah Husband=Peter
 
 
 
@@ -36,3 +41,11 @@ Person=Peter Relation=Father
 Person=Sarah Relation=Father
 Person=Sarah Relation=Mother
 Person=Sarah Relation=Brothers
+Person=George Relation=Wife
+Person=Nisha Relation=Husband
+Person=Evan Relation=GrandSons
+Person=Diana Relation=GrandSons
+Person=Joe Relation=Sons
+Person=Diana Relation=GrandDaughters
+Person=Sarah Relation=GrandFather
+Person=Sarah Relation=GrandMother

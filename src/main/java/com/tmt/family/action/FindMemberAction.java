@@ -3,10 +3,7 @@ package com.tmt.family.action;
 import com.sun.deploy.util.StringUtils;
 import com.tmt.family.entity.Family;
 import com.tmt.family.entity.Person;
-import com.tmt.family.relation.action.ChildRelationAction;
-import com.tmt.family.relation.action.ParentRelationAction;
-import com.tmt.family.relation.action.RelationAction;
-import com.tmt.family.relation.action.SiblingRelationAction;
+import com.tmt.family.relation.action.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,14 +21,16 @@ public class FindMemberAction extends Action {
         relationActionMap.put("Daughters", new ChildRelationAction());
         relationActionMap.put("Brothers", new SiblingRelationAction());
         relationActionMap.put("Sisters", new SiblingRelationAction());
-      //TODO
-        /*
-        relationActionMap.put("GrandFather", new AncestorRelationAction());
+        relationActionMap.put("Wife", new SpouseRelationAction());
+        relationActionMap.put("Husband", new SpouseRelationAction());
 
+
+        relationActionMap.put("GrandFather", new AncestorRelationAction());
         relationActionMap.put("GrandMother", new AncestorRelationAction());
         relationActionMap.put("GrandSons", new SuccessorRelationAction());
         relationActionMap.put("GrandDaughters", new SuccessorRelationAction());
-        relationActionMap.put("Aunts", new OtherRelationAction());
+//TODO
+        /*relationActionMap.put("Aunts", new OtherRelationAction());
         relationActionMap.put("Uncles", new OtherRelationAction());
         relationActionMap.put("Cousins", new OtherRelationAction());
         */

@@ -7,7 +7,7 @@ import com.tmt.family.enums.GenderType;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public class ChildRelationAction extends RelationAction {
+public class SuccessorRelationAction extends RelationAction {
 
     public void addRelation(Person parent, String relationName, String relativeName) {
 
@@ -20,17 +20,25 @@ public class ChildRelationAction extends RelationAction {
 
     public Set<String> findRelation(Person person, String relationName) {
         GenderType gType = getGender(relationName);
-        Set<String> childrenNames = new LinkedHashSet<String>();
+        Set<String> grandChildrenNames = new LinkedHashSet<String>();
         Set<Person> children = person.getChildren();
 
         for (Person child : children) {
-            if (child.getGender() == gType) {
-                childrenNames.add(child.getName());
+            if (child == null) {
+                continue;
             }
+
+            for (Person grandChild : child.getChildren()) {
+                if (grandChild.getGender() == gType) {
+                    grandChildrenNames.add(grandChild.getName());
+                }
+
+            }
+            
 
         }
 
-        return childrenNames;
+        return grandChildrenNames;
 
     }
 }

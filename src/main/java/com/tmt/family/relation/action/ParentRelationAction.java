@@ -10,7 +10,7 @@ public class ParentRelationAction extends RelationAction {
 
     public void addRelation(Person parent, String relationName, String relativeName) {
 
-       throw new RuntimeException("Invalid action");
+        throw new RuntimeException("Invalid action");
 
     }
 
@@ -18,18 +18,22 @@ public class ParentRelationAction extends RelationAction {
 
         GenderType gType = getGender(relationName);
         Set<String> parentName = new LinkedHashSet<String>();
+        String name;
+        if (gType == GenderType.FEMALE && person.getMother() != null) {
 
-        if(gType == GenderType.FEMALE){
-            parentName.add( person.getMother().getName());
-            return parentName;
+            name = person.getMother().getName();
+
+        } else if (gType == GenderType.MALE && person.getFather() != null) {
+
+            name = person.getFather().getName();
+
+        } else {
+
+            throw new RuntimeException("No Information!");
+
         }
+        parentName.add(name);
 
-        if(gType == GenderType.MALE){
-            parentName.add( person.getFather().getName());
-            return parentName;
-        }
-
-        throw new RuntimeException("Invalid Relation!");
-
+        return parentName;
     }
 }

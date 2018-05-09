@@ -4,6 +4,7 @@ import com.tmt.family.FamilyFactory;
 import com.tmt.family.entity.Person;
 import com.tmt.family.enums.GenderType;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
@@ -22,6 +23,17 @@ public class SpouseRelationAction extends RelationAction {
 
 
     public Set<String> findRelation(Person person, String relationName) {
-        throw new RuntimeException("Invalid action");
+        GenderType gType = getGender(relationName);
+        Set<String> spouseName = new LinkedHashSet<String>();
+        String name = "";
+        if (gType == person.getSpouse().getGender()) {
+            name = person.getSpouse().getName();
+
+        } else {
+
+            throw new RuntimeException("Invalid Relation!");
+        }
+        spouseName.add(name);
+        return spouseName;
     }
 }
