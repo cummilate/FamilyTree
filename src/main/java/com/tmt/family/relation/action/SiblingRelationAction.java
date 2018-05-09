@@ -18,13 +18,15 @@ public class SiblingRelationAction extends RelationAction {
 
         GenderType gType = getGender(relationName);
         Set<String> siblingNames = new LinkedHashSet<String>();
-        Set<Person> siblings = person.getFather().getChildren();
+        if (person.getParent() != null) {
+            Set<Person> siblings = person.getParent().getChildren();
 
-        for (Person child : siblings) {
-            if (child.getGender() == gType && !child.equals(person)) {
-                siblingNames.add(child.getName());
+            for (Person child : siblings) {
+                if (child.getGender() == gType && !child.equals(person)) {
+                    siblingNames.add(child.getName());
+                }
+
             }
-
         }
 
         return siblingNames;

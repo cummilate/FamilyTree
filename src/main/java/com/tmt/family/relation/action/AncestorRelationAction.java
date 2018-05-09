@@ -10,18 +10,14 @@ import java.util.Set;
 public class AncestorRelationAction extends RelationAction {
 
     public void addRelation(Person parent, String relationName, String relativeName) {
-
-        GenderType gType = getGender(relationName);
-
-        Person child = FamilyFactory.createPerson(relativeName, gType);
-        parent.addChild(child);
+        throw new RuntimeException("Invalid action");
 
     }
 
     public Set<String> findRelation(Person person, String relationName) {
         GenderType gType = getGender(relationName);
         Person grandParent = null;
-        Person parent = person.getFather() != null ? person.getFather() : person.getMother();
+        Person parent = person.getParent();//person.getFather() != null ? person.getFather() : person.getMother();
         Set<String> grandParentName = new LinkedHashSet<String>();
         String name = "";
 

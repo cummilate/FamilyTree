@@ -11,9 +11,9 @@ import java.util.Set;
 
 public class FindMemberAction extends Action {
 
-   private static Map<String, RelationAction> relationActionMap;
-    private static void init()
-    {
+    private static Map<String, RelationAction> relationActionMap;
+
+    private static void init() {
         relationActionMap = new HashMap();
         relationActionMap.put("Father", new ParentRelationAction());
         relationActionMap.put("Mother", new ParentRelationAction());
@@ -30,18 +30,20 @@ public class FindMemberAction extends Action {
         relationActionMap.put("GrandSons", new SuccessorRelationAction());
         relationActionMap.put("GrandDaughters", new SuccessorRelationAction());
 //TODO
-        /*relationActionMap.put("Aunts", new OtherRelationAction());
-        relationActionMap.put("Uncles", new OtherRelationAction());
-        relationActionMap.put("Cousins", new OtherRelationAction());
-        */
+        relationActionMap.put("Aunts", new AuntUncleRelationAction());
+        relationActionMap.put("Uncles", new AuntUncleRelationAction());
+        relationActionMap.put("Cousins", new CousinRelationAction());
+
     }
 
     public void performAction(Family family) {
 
-        if(relationActionMap == null){init();}
+        if (relationActionMap == null) {
+            init();
+        }
 
-        RelationAction relationAction = relationActionMap.get( getActionTarget().getValue().trim());
-        if(relationAction == null){
+        RelationAction relationAction = relationActionMap.get(getActionTarget().getValue().trim());
+        if (relationAction == null) {
             throw new RuntimeException("Invalid Relationship!");
         }
         Person actionSourcePerson = family.getPerson(getActionSource().getValue());

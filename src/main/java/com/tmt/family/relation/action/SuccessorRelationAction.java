@@ -11,10 +11,7 @@ public class SuccessorRelationAction extends RelationAction {
 
     public void addRelation(Person parent, String relationName, String relativeName) {
 
-        GenderType gType = getGender(relationName);
-
-        Person child = FamilyFactory.createPerson(relativeName, gType);
-        parent.addChild(child);
+        throw new RuntimeException("Invalid action");
 
     }
 

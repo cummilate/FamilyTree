@@ -12,8 +12,12 @@ public class FamilyFactory {
     private static Map<String, Family> families = new HashMap();
 
     public static Family getFamily(String familyHeadName) {
-        Family f = families.get(familyHeadName);
-        return f;
+        return families.get(familyHeadName);
+    }
+
+    public static Family getFamily() {
+        return families.values().iterator().next();
+
     }
 
     public static Family createFamily(Person person) {

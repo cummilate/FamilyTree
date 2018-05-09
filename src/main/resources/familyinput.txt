@@ -48,4 +48,18 @@ Person=Diana Relation=GrandSons
 Person=Joe Relation=Sons
 Person=Diana Relation=GrandDaughters
 Person=Sarah Relation=GrandFather
-Person=Sarah Relation=GrandMother
+Person=Jacob Relation=Aunts
+Person=Bern Relation=Aunts
+Person=Bern Relation=Uncles
+Person=Bern Relation=Cousins
+Person=Piers Relation=Cousins
+Person=Nancy Relation=Cousins
+Person=John Relation=Cousins
+Person=Piers Relation=Cousins
+Person=Nancy Relation=Cousins
+Person=Pippa Relation=Cousins
+Person=William Relation=Cousins
+
+-----negative test case
+Wife=Pulka Husband=
+Person=Pulka Relation=Wife

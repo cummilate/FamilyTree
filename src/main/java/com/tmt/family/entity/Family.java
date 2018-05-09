@@ -10,6 +10,10 @@ public class Family {
         this.head = head;
     }
 
+    public Person getHead() {
+        return head;
+    }
+
     private static Person getPerson(String name, Person person) {
         Person p = null;
         if (person != null) {

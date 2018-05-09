@@ -14,6 +14,7 @@ public class Person {
     private Person father;
     private Person mother;
 
+
     public Person(String name, GenderType gender) {
         this.name = name;
         this.gender = gender;
@@ -76,6 +77,23 @@ public class Person {
 
     public void setMother(Person mother) {
         this.mother = mother;
+    }
+
+    /**
+     * return either mother or father who belongs to family tree
+     * @return
+     */
+    public Person getParent() {
+        Person parent = null;
+         if(this.getFather() != null && this.getMother() != null){ // person part of family tree
+             if(getMother().getMother() != null && getMother().getFather() != null){ //mother is part of family tree
+                 parent = getMother();
+             }else{
+                 parent = getFather();
+             }
+         }
+         return parent;
+
     }
 
     @Override
