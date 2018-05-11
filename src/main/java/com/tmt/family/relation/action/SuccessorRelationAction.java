@@ -1,6 +1,5 @@
 package com.tmt.family.relation.action;
 
-import com.tmt.family.FamilyFactory;
 import com.tmt.family.entity.Person;
 import com.tmt.family.enums.GenderType;
 

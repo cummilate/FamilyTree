@@ -1,7 +1,5 @@
 package com.tmt.family.entity;
 
-import com.tmt.family.entity.Person;
-
 public class Family {
 
     private Person head;
@@ -10,11 +8,20 @@ public class Family {
         this.head = head;
     }
 
+
     public Person getHead() {
         return head;
     }
 
-    private static Person getPerson(String name, Person person) {
+    public Person getPerson(String name) {
+        Person p = getPerson(name, head);
+        if (p == null) {
+            throw new RuntimeException("Person Not Found in the Family : " + name);
+        }
+        return p;
+    }
+
+    private Person getPerson(String name, Person person) {
         Person p = null;
         if (person != null) {
 
@@ -41,13 +48,4 @@ public class Family {
         return p;
 
     }
-
-    public Person getPerson(String name) {
-        Person p = getPerson(name, head);
-        if (p == null) {
-            throw new RuntimeException("Person Not Found in the Family : " + name);
-        }
-        return p;
-    }
-
 }

@@ -1,8 +1,9 @@
 package com.tmt.family.entity;
 
 import com.tmt.family.enums.GenderType;
-
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Set;
 
 public class Person {
 
@@ -54,7 +55,7 @@ public class Person {
     }
 
     public void addChild(Person child) {
-        if(spouse == null){
+        if (spouse == null) {
             throw new RuntimeException("Cannot have a child without Spouse");
         }
         this.children.add(child);
@@ -81,25 +82,37 @@ public class Person {
 
     /**
      * return either mother or father who belongs to family tree
-     * @return
      */
     public Person getParent() {
         Person parent = null;
-         if(this.getFather() != null && this.getMother() != null){ // person part of family tree
-             if(getMother().getMother() != null && getMother().getFather() != null){ //mother is part of family tree
-                 parent = getMother();
-             }else{
-                 parent = getFather();
-             }
-         }
-         return parent;
+        if (this.getFather() != null && this.getMother() != null) { // person part of family tree
+            if (getMother().getMother() != null && getMother().getFather() != null) { //mother is part of family tree
+                parent = getMother();
+            } else {
+                parent = getFather();
+            }
+        }
+        return parent;
 
+    }
+
+    public Person getRoot() {
+        Person parent = null;
+        do {
+            parent = parent.getParent();
+        } while (parent != null);
+
+        return parent;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Person person = (Person) o;
         return Objects.equals(name, person.name);
     }

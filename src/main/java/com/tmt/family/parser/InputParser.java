@@ -5,6 +5,9 @@ import com.tmt.family.action.ActionFactory;
 import com.tmt.family.enums.ActionType;
 import javafx.util.Pair;
 
+/**
+ * Parses the User input and deduces the action commands
+ */
 public class InputParser {
 
     private String input;

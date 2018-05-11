@@ -4,26 +4,32 @@ import com.tmt.family.entity.Family;
 import com.tmt.family.entity.Person;
 import com.tmt.family.enums.GenderType;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class FamilyFactory {
 
-    private static Map<String, Family> families = new HashMap();
+    private static Family defaultFamily;
 
-    public static Family getFamily(String familyHeadName) {
-        return families.get(familyHeadName);
+
+    public static Family getDefaultFamily() {
+        if (defaultFamily == null) {
+            defaultFamily = createDefaultFamily();
+        }
+        return defaultFamily;
+
     }
 
-    public static Family getFamily() {
-        return families.values().iterator().next();
+    private static Family createDefaultFamily() {
+        Person husband = createPerson("Evan", GenderType.MALE);
+        Person wife = createPerson("Diana", GenderType.FEMALE);
 
+        husband.setSpouse(wife);
+        wife.setSpouse(husband);
+
+        Family family = createFamily(husband);
+        return family;
     }
 
     public static Family createFamily(Person person) {
-
         Family f = new Family(person);
-        families.put(person.getName(), f);
         return f;
     }
 

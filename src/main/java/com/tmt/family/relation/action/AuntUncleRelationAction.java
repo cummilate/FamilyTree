@@ -19,7 +19,7 @@ public class AuntUncleRelationAction extends OtherRelationAction {
 
         int depth = getDepth(person, 0);
         int height = 1; //aunts and uncles are one level up
-        Person head = FamilyFactory.getFamily().getHead();
+        Person head = person.getRoot();
         Set<Person> interestedPersons = getPersonsAtLevel(head, depth - height, true);
 
         GenderType gType = getGender(relationName);

@@ -18,7 +18,7 @@ public class CousinRelationAction extends OtherRelationAction {
 
         int depth = getDepth(person, 0);
         int height = 0; //Cousins are at same level
-        Person head = FamilyFactory.getFamily().getHead();
+        Person head = person.getRoot();
         Set<Person> interestedPersons = getPersonsAtLevel(head, depth - height, false);
         Set<String> cousins = new LinkedHashSet<String>();
         for (Person interestedPerson : interestedPersons) {

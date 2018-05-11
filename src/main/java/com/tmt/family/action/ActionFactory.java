@@ -15,7 +15,7 @@ public class ActionFactory {
         actions.put(ActionType.FIND, new FindMemberAction());
     }
 
-    public static Action getAction(ActionType actionType) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+    public static Action getAction(ActionType actionType) {
        if(actions == null){init();}
 
         return actions.get(actionType);

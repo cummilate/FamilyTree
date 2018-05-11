@@ -29,7 +29,7 @@ public class FindMemberAction extends Action {
         relationActionMap.put("GrandMother", new AncestorRelationAction());
         relationActionMap.put("GrandSons", new SuccessorRelationAction());
         relationActionMap.put("GrandDaughters", new SuccessorRelationAction());
-//TODO
+
         relationActionMap.put("Aunts", new AuntUncleRelationAction());
         relationActionMap.put("Uncles", new AuntUncleRelationAction());
         relationActionMap.put("Cousins", new CousinRelationAction());

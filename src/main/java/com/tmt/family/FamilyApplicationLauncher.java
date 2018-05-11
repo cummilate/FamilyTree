@@ -8,37 +8,47 @@ import com.tmt.family.parser.InputParser;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.io.StringReader;
 import java.util.Scanner;
 
 public class FamilyApplicationLauncher {
     public static void main(String arg[])  {
-        Person husband = FamilyFactory.createPerson("Evan", GenderType.MALE);
-        Person wife = FamilyFactory.createPerson("Diana", GenderType.FEMALE);
+        FamilyApplicationLauncher launcher = new FamilyApplicationLauncher();
+        launcher.launch();
 
-        husband.setSpouse(wife);
-        wife.setSpouse(husband);
 
-        Family family = FamilyFactory.createFamily(husband);
+    }
 
-        FamilyRelationManager familyManager = new FamilyRelationManager(family);
-        Scanner sc = new Scanner(System.in);
+    public void launch() {
+
+        Family family = FamilyFactory.getDefaultFamily();
+        FamilyRelationManager familyRelationManager = new FamilyRelationManager(family);
+
+
         System.out.print("Input : ");
-        //InputStream is = FamilyApplicationLauncher.class.getClassLoader().getResourceAsStream("familyinput.txt");
+        InputStream is = FamilyApplicationLauncher.class.getClassLoader().getResourceAsStream("default-family-members.txt");
+        Scanner sc = new Scanner(is);
+        acceptAndProcess(sc,familyRelationManager);
+        sc.close();
 
+        sc = new Scanner(System.in);
+        acceptAndProcess(sc,familyRelationManager);
 
+    }
+
+    private void acceptAndProcess(Scanner sc, FamilyRelationManager familyRelationManager) {
         String input;
         while (!(input = sc.nextLine()).equalsIgnoreCase("EXIT")) {
             try{
                 Action action = InputParser.parse(input);
-                familyManager.handleRelation(action);
-                System.out.print("Input : ");
+                familyRelationManager.handleRelation(action);
             }catch (Exception e){
                 System.out.println(e.getMessage());
             }
-
+            System.out.print("Input : ");
         }
 
-        System.out.println("Out of loop");
-
     }
+
+
 }
